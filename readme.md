@@ -10,4 +10,7 @@ When implementing a new feature or fixing a bug, please create a new pull reques
 
 ## First setup
 
-**[TODO 05/01/2018 @vanessa-cooper]:** _It's been a while since anyone ran a fresh copy of this repo. I think it's worth documenting the steps needed to install and run the repo on a new machine?_
+1. From the root directory, run `docker-compose up`. You'll need to wait while docker pulls the containers required to run both the front and and the back end - go grab a drink of water or a cup of coffee.
+2. When complete, visit `http://localhost:3000/api/ping` to ensure that the back end is working.
+  a. Note that you may see an error screen because there are database migrations that need to run - click the red button to run these migrations.
+3. Pong! Backend working - time to test the front end. Go to `http://localhost:3001/register` and you should see a registration screen. Create a username and password.
