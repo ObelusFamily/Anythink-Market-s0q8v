@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
           title: item.title,
           slug: item.slug,
           description: item.description,
-          image: item.image.empty? ? "/placeholder.png" : item.image,
+          image: item.image,
           tagList: item.tags.map(&:name),
           createdAt: item.created_at,
           updatedAt: item.updated_at,
@@ -93,6 +93,9 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :image, tag_list: [])
+    params
+      .require(:item)
+      .permit(:title, :description, :image, tag_list: [])
+      .with_defaults(image: "/placeholder.png")
   end
 end
