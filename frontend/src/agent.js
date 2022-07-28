@@ -49,6 +49,7 @@ const Tags = {
 };
 
 const limit = (count, p) => `limit=${count}&offset=${p ? p * count : 0}`;
+const titleParam = (title) => (title ? `title=${title}&` : ``);
 const omitSlug = (item) => Object.assign({}, item, { slug: undefined });
 const Items = {
   all: (page) => requests.get(`/items?${limit(1000, page)}`),
@@ -56,6 +57,8 @@ const Items = {
     requests.get(`/items?seller=${encode(seller)}&${limit(500, page)}`),
   byTag: (tag, page) =>
     requests.get(`/items?tag=${encode(tag)}&${limit(1000, page)}`),
+  byText: (title, page) =>
+    requests.get(`/items?${titleParam(title)}${limit(1000, page)}`),
   del: (slug) => requests.del(`/items/${slug}`),
   favorite: (slug) => requests.post(`/items/${slug}/favorite`),
   favoritedBy: (seller, page) =>
