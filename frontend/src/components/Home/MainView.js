@@ -101,7 +101,7 @@ const MainView = (props) => {
         </ul>
       </div>
 
-      {props.items.length === 0 && props.searchText ? (
+      {!props.items?.length && props.searchText ? (
         <NoItems searchText={props.searchText} />
       ) : (
         <ItemList
