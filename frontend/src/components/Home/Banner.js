@@ -9,11 +9,11 @@ const Banner = ({ onTextFilter }) => {
     const filterPromise = agent.Items.byText;
     if (searchText.length > 2) {
       agent.Items.byText(searchText).then((res) => {
-        onTextFilter(filterPromise, res);
+        onTextFilter(filterPromise, searchText, res);
       });
     } else {
       agent.Items.byText().then((res) => {
-        onTextFilter(filterPromise, res);
+        onTextFilter(filterPromise, "", res);
       });
     }
   }, [searchText, onTextFilter]);

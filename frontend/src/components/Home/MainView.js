@@ -58,6 +58,21 @@ const TagFilterTab = (props) => {
   );
 };
 
+const NoItems = (props) => {
+  return (
+    <div className="container text-center">
+      <div className="row justify-content-md-center">
+        <div className="card col-6 mt-4 bg-light p-4">
+          <i class="bi bi-emoji-frown-fill" style={{ fontSize: "32px" }}></i>
+          <p>
+            No items found for "<b>{props.searchText}</b>".
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const mapStateToProps = (state) => ({
   ...state.itemList,
   tags: state.home.tags,
@@ -86,13 +101,17 @@ const MainView = (props) => {
         </ul>
       </div>
 
-      <ItemList
-        pager={props.pager}
-        items={props.items}
-        loading={props.loading}
-        itemsCount={props.itemsCount}
-        currentPage={props.currentPage}
-      />
+      {props.items.length === 0 && props.searchText ? (
+        <NoItems searchText={props.searchText} />
+      ) : (
+        <ItemList
+          pager={props.pager}
+          items={props.items}
+          loading={props.loading}
+          itemsCount={props.itemsCount}
+          currentPage={props.currentPage}
+        />
+      )}
     </div>
   );
 };
