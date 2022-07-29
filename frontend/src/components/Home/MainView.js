@@ -60,7 +60,7 @@ const TagFilterTab = (props) => {
 
 const NoItems = (props) => {
   return (
-    <div className="container text-center">
+    <div className="container text-center" id="empty">
       <div className="row justify-content-md-center">
         <div className="card col-6 mt-4 bg-light p-4">
           <i class="bi bi-emoji-frown-fill" style={{ fontSize: "32px" }}></i>
