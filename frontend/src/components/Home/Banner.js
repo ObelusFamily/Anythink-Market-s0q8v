@@ -28,11 +28,12 @@ const Banner = ({ onTextFilter }) => {
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" />
         <div className="row justify-content-center align-items-center">
-          <span id="get-part">
-            A place to{" "}
-            <span onClick={() => setShowInput(true)} className="pointer">
-              get{" "}
-            </span>
+          <span
+            id="get-part"
+            onClick={() => setShowInput(true)}
+            className="pointer"
+          >
+            A place to get
           </span>
           {showInput ? (
             <div className="input-group col-4">
@@ -46,7 +47,7 @@ const Banner = ({ onTextFilter }) => {
               />
               <span className="input-group-append bg-white rounded">
                 <span className="input-group-text bg-transparent">
-                  <i class="bi bi-search" style={{ color: "purple" }}></i>
+                  <i className="bi bi-search" style={{ color: "purple" }}></i>
                 </span>
               </span>
             </div>
